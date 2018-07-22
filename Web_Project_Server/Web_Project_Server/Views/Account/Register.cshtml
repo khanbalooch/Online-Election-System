@@ -1,0 +1,17 @@
+﻿@model Web_Project_Server.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<ul class="nav navbar-nav">
+    
+    <li>@Html.ActionLink("Register as Candidate", "Index", "Home")</li>
+    <li>@Html.ActionLink("Register as Voter", "About", "Home")</li>
+</ul>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

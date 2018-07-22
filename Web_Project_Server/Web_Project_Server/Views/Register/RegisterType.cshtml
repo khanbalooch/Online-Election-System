@@ -1,0 +1,9 @@
+﻿
+@{
+    ViewBag.Title = "RegisterType";
+}
+
+<h2>Choose Your Category</h2>
+
+<input type="button" value="Candidate" class="btn btn-primary" onclick="@("window.location.href='"+ @Url.Action("RegisterCandidate", "RegisterType") + "'"); " />
+<input type="button" value="Voter" class="btn btn-primary" onclick="@("window.location.href='"+ @Url.Action("Index", "Home") + "'"); " />

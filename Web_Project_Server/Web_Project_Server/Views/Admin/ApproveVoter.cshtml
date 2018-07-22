@@ -1,0 +1,53 @@
+﻿@using Web_Project_Server.Models
+@model List<Web_Project_Server.Models.User>
+
+
+
+@{
+	ViewBag.Title = "Approve Candidate";
+}
+
+
+
+@using (Html.BeginForm("Approve", "Admin", FormMethod.Post))
+{
+
+
+	<br />
+	<br />
+	int i = 0;
+	for (; i < Model.Count(); i++)
+	{
+
+		<table>
+			<tr>
+				<td>
+					@Html.HiddenFor(it => it[i].UserName)
+					@Html.DisplayFor(it => it[i].Name)
+				</td>
+				<td>
+					@Html.CheckBoxFor(it => it[i].isApproved, new { id = "checkboxlist", style = "vertical - align: 3px" })
+				</td>
+			</tr>
+		</table>
+	}
+
+	if (i != 0)
+	{
+		<br />
+		<script src="~/Scripts/alertFun.js" type="text/javascript">
+		</script>
+		<input id="Aprrove" type="submit" value="Approve" onclick="fun('Done')" />
+	}
+	else
+	{
+		<h1>No Voters to Approve</h1>
+	}
+}
+
+<br />
+<br />
+<br />
+<div>
+	@Html.ActionLink("Back to Panel", "Index", "Admin")
+</div>

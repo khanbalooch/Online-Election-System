@@ -1,0 +1,30 @@
+﻿
+	ViewBag.Title = "Index";
+
+	<div class="carousel" style="position: relative;width:300px;height:300px; top:150px; left:200px;">
+		<input type="button" id="CastVote" value="Cast Vote" class="btn   alert" style="position: center; top:300px;left:300px; width:300px;height:100px;" />
+		<input type="button" id="NAButton" class="=btn btn-group-justified" value="National Assembly" style="display:none;" onclick="location.href='@Url.Action("CastVote", "VoterHome")?Level=National' ">
+		<input type="button" id="PAButton" class="=btn btn-group-justified" value="Provincial Assembly" style="display:none;" onclick="location.href='@Url.Action("CastVote", "VoterHome")?Level=Provincial' ">
+	</div>
+
+	@section scripts{
+
+		<script src="~/Scripts/jquery-1.10.2.js"></script>
+		<script>
+        $(document).ready(function () {
+
+            $("#CastVote").click(function () {
+
+                $(this).hide();
+                $("#NAButton").show();
+                $("#PAButton").show();
+
+            });
+            $("#NAButton").click(function () {
+
+            });
+        });
+
+		</script>
+
+	}

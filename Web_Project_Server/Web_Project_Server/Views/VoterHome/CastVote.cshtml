@@ -1,0 +1,28 @@
+﻿@using Web_Project_Server.Models
+@model List<Vote>
+
+@using (Html.BeginForm("CastVoteTo", "VoterHome", FormMethod.Post))
+{
+	ElectionCatalog db = new ElectionCatalog();
+	for (int i = 0; i < Model.Count(); i++)
+	{
+
+		var imagePath = db.Users.Find(Model[i].Candidate.ToString()).PicPath.ToString() ;
+		imagePath += @"\" + Model[i].Candidate.ToString() + ".Jpeg";
+		var EID = Model[i].ElectionID;
+		var ECITY = Model[i].ElectionCity;
+		var CANDIDATE = Model[i].Candidate;
+		@Html.RadioButtonFor(model => model[i].Voter, Session["UserName"], false)
+
+		@*@model[i].Candidate = CANDIDATE;
+		@model[i].ElectionCity = ECITY;
+		@model[i].ElectionID = EID;*@
+
+
+		
+		<label> @Model[i].Candidate.ToString()</label>
+		<img src= "@imagePath"/>
+	}
+
+	<input type="submit" value="Record Vote">
+}
